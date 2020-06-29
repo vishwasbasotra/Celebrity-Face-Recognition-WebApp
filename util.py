@@ -12,7 +12,7 @@ __model = None
 
 
 def get_b64_test_image_for_virat():
-    with open('base.txt') as f:
+    with open('./model/test_images/base.txt') as f:
         return f.read()
 
 
