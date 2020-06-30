@@ -1,20 +1,26 @@
-import numpy as np
-import json
 import util
-from flask import Flask, request, jsonify, url_for, redirect, render_template
+from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
+app.config.update(
+    dict(SECRET_KEY="powerful secretkey", WTF_CSRF_SECRET_KEY="a csrf secret key")
+)
 
 
-@app.route('/home', methods=['GET', 'POST'])
-def classify_image():
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+
+
+@app.route('/prediction', methods=['POST'])
+def predictions():
     image_data = request.form['image_data']
 
-    result = jsonify(util.classify_image(image_data))
+    response = jsonify(util.classify_image(image_data))
 
-    result.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Origin', '*')
 
-    return result
+    return response
 
 
 if __name__ == "__main__":

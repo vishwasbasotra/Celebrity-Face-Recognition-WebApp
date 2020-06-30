@@ -12,7 +12,7 @@ __model = None
 
 
 def get_b64_test_image_for_virat():
-    with open('./model/test_images/base.txt') as f:
+    with open('./model/test_images/virat_base64.txt') as f:
         return f.read()
 
 
@@ -82,15 +82,14 @@ def load_artifacts():
     print("Loading saved artifacts...Start")
     global __class_name_to_number
     global __class_number_to_name
+    global __model
 
     with open('class_dictionary.json', 'r') as f:
         __class_name_to_number = json.load(f)
         __class_number_to_name = {v: k for k, v in __class_name_to_number.items()}
 
-    global __model
     if __model is None:
-        with open('final_model.pkl', 'rb') as f:
-            __model = joblib.load(f)
+        __model = joblib.load(open('final_model.pkl', 'rb'))
     print("Loading save artifacts...done!")
 
 
@@ -101,7 +100,8 @@ if __name__ == "__main__":
     print(classify_image(None, "./model/test_images/federer2.jpg"))
     print(classify_image(None, "./model/test_images/virat1.jpg"))
     print(classify_image(None, "./model/test_images/virat2.jpg"))
-    print(classify_image(None, "./model/test_images/virat3.jpg")) # Inconsistent result could be due to https://github.com/scikit-learn/scikit-learn/issues/13211
+    print(classify_image(None,
+                         "./model/test_images/virat3.jpg"))  # Inconsistent result could be due to https://github.com/scikit-learn/scikit-learn/issues/13211
     print(classify_image(None, "./model/test_images/serena1.jpg"))
     print(classify_image(None, "./model/test_images/serena2.jpg"))
     print(classify_image(None, "./model/test_images/sharapova3.jpg"))
