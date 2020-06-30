@@ -126,7 +126,7 @@ def w2d(img, mode='haar', level=1):
     return imArray_H
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
