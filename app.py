@@ -3,7 +3,6 @@ import pywt
 import joblib
 import numpy as np
 import base64
-import os
 import json
 from flask import Flask, request, jsonify, render_template, redirect
 
@@ -15,12 +14,7 @@ app.config.update(
 __class_name_to_number = {}
 __class_number_to_name = {}
 
-__model = None
-
-
-def get_b64_test_image_for_virat():
-    with open('./model/test_images/virat_base64.txt') as f:
-        return f.read()
+__model = joblib.load(open('final_model.pkl', 'rb'))
 
 
 def classify_image(image_base64_data, file_path=None):
@@ -95,8 +89,6 @@ def load_artifacts():
         __class_name_to_number = json.load(f)
         __class_number_to_name = {v: k for k, v in __class_name_to_number.items()}
 
-    if __model is None:
-        __model = joblib.load(open('final_model.pkl', 'rb'))
     print("Loading save artifacts...done!")
 
 
@@ -126,37 +118,22 @@ def w2d(img, mode='haar', level=1):
     return imArray_H
 
 
-def allowed_image(filename):
-    # We only want files with a . in the filename
-    if not "." in filename:
-        return False
-
-    # Split the extension from the filename
-    ext = filename.rsplit(".", 1)[1]
-
-    # Check if the extension is in ALLOWED_IMAGE_EXTENSIONS
-    if ext.upper() in app.config["ALLOWED_IMAGE_EXTENSIONS"]:
-        return True
-    else:
-        return False
-
-
-@app.route('/', methods=['GET'])
+@app.route('/')
 def index():
     return render_template('index.html')
 
 
-@app.route('/prediction', methods=['POST'])
+@app.route('/prediction', methods=["POST"])
 def prediction():
     if request.method == 'POST':
+
         image_data = request.form['b64']
-        print(image_data)
         result = classify_image(image_data)
-        print(result)
 
         if len(result) == 0:
             message = "Can't classify image. Classifier was not able to detect face and two eyes properly"
-            return render_template("prediction.html", message=message)
+            return render_template("prediction.html", message=message, messi="NA", sharapova="NA", federer="NA",
+                                   serena="NA", virat="NA")
 
         match = None
         bestScore = -1
@@ -176,8 +153,8 @@ def prediction():
         serena = match['class_probability'][3]
         virat = match['class_probability'][4]
 
-
-        return render_template('prediction.html', playerName=playerName, messi=messi, sharapova=sharapova, federer=federer,  serena=serena, virat=virat)
+        return render_template('prediction.html', playerName=playerName, messi=messi, sharapova=sharapova,
+                               federer=federer, serena=serena, virat=virat)
 
 
 if __name__ == "__main__":

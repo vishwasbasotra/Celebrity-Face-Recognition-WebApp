@@ -13,7 +13,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
     <!-- Custom CSS-->
-    <link rel="stylesheet" href="{{url_for('static',filename='lib/pstyle6.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='lib/pstyle10.css')}}" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{url_for('static',filename='favicon.png')}}" />
@@ -26,10 +26,10 @@
         <a class="navbar-brand" href="{{url_for('index')}}">Sports Person Classifier</a>
     </nav>
     <div class="col-sm-8 error" id="error">
-        <p>{{message}}</p>
+        <p class="text-center text-danger text-bold">{{message}}</p>
     </div>
 
-    <input type="text" value="{{playerName}}" id="playerName" style="visibility: hidden;">
+    <input type="text" value="{{playerName}}" id="playerName" style="visibility: hidden;margin-top: 1px; height: 1px;">
 
     <img src="{{url_for('static',filename='messi.jpg')}}" alt="Messi" id="messi">
     <img src="{{url_for('static',filename='sharapova.jpg')}}" alt="Sharapova" id="sharapova">
@@ -37,8 +37,6 @@
     <img src="{{url_for('static',filename='serena.jpg')}}" alt="Serena" id="serena">
     <img src="{{url_for('static',filename='virat.jpg')}}" alt="Virat" id="virat">
 
-    <div class="col-sm-4" id="resultHolder">
-    </div>
     <div class="col-sm-4" id="divClassTable">
         <table id="classTable">
             <tr>
