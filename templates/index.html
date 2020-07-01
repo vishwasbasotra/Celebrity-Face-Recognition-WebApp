@@ -12,11 +12,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-    <!--Dropzone CSS-->
-    <link rel="stylesheet" href="{{url_for('static',filename='lib/dropzone.min.css')}}">
-
     <!-- Custom CSS-->
-    <link rel="stylesheet" href="{{url_for('static',filename='lib/style4.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='lib/style23.css')}}" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{url_for('static',filename='favicon.png')}}" />
@@ -25,8 +22,6 @@
 </head>
 
 <body>
-    <div class=" img">
-    </div>
     <nav class="navbar navbar-dark bg-dark justify-content-center">
         <a class="navbar-brand" href="{{url_for('index')}}">Sports Person Classifier</a>
     </nav>
@@ -95,62 +90,29 @@
 
         </div>
 
-        <div class="row">
+        <div class="row selectImage text-center">
             <div class="col-sm-4">
                 <div class="row">
                     <div class="col-12 mx-auto">
-                        <form action="/file-upload" class="dropzone" id="dropzone">
-                            <div class="dz-message needsclick">
-                                <img src="{{url_for('static',filename='upload.png')}}" width="50vw" height="50vw"><br>
-                                <span class="note needsclick">Drop files here or click to upload</span>
+                        <form action="/prediction" enctype="multipart/form-data" runat="server" method="POST"
+                            class="form">
+                            <div class="image form-group">
+                                <label for="inp" class="btn btn-secondary">Uplaod Image</label>
+                                <input autocomplete="off" id="inp" style="visibility: hidden;" type='file'>
+                                <input name="b64" type="textarea" id="b64">
+                                <img id="img">
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-3 mx-auto">
+                                    <input type="submit" id="submitBtn" class="btn btn-primary"
+                                        value="Classify Celebrity">
+                                </div>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-3 mx-auto">
-                        <button id="submitBtn" type="button" class="btn btn-primary">Classify</button>
-                    </div>
-                </div>
             </div>
-
-            <div class="col-sm-8 error" id="error">
-                <p>Can't classify image. Classifier was not able to detect face and two eyes properly</p>
-            </div>
-
-            <div class="col-sm-4" id="resultHolder">
-            </div>
-            <div class="col-sm-4" id="divClassTable">
-                <table id="classTable">
-                    <tr>
-                        <th class="bg-primary">Player</th>
-                        <th class="bg-primary">Probability Score</th>
-                    </tr>
-                    <tr>
-                        <td>Leonel Messi</td>
-                        <td id="score_lionel_messi"></td>
-                    </tr>
-                    <tr>
-                        <td>Maria Sharapova</td>
-                        <td id="score_maria_sharapova"></td>
-                    </tr>
-                    <tr>
-                        <td>Rodger Federer</td>
-                        <td id="score_roger_federer"></td>
-                    </tr>
-                    <tr>
-                        <td>Serena Williams</td>
-                        <td id="score_serena_williams"></td>
-                    </tr>
-                    <tr>
-                        <td>Virat Kohli</td>
-                        <td id="score_virat_kohli"></td>
-                    </tr>
-                </table>
-            </div>
-
         </div>
-
     </div>
 
 </body>
@@ -158,10 +120,7 @@
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<!--Dropzone JS-->
-<script src="{{url_for('static',filename='lib/dropzone.min.js')}}"></script>
-
-<!--Custom JS-->
-<script src="{{url_for('static',filename='lib/script.js')}}"></script>
+<!--Custom JavaScript-->
+<script src="{{url_for('static',filename='lib/script9.js')}}"></script>
 
 </html>

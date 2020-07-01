@@ -1,6 +1,32 @@
-Dropzone.autoDiscover = false;
+var b64;
 
-function init() {
+$("#imgInp").change(function () {
+    readURL(this);
+});
+
+function readFile() {
+
+    if (this.files && this.files[0]) {
+
+        var FR = new FileReader();
+
+        FR.addEventListener("load", function (e) {
+            document.getElementById("img").src = e.target.result;
+            document.getElementById("b64").value = e.target.result;
+            window.b64 = e.target.result;
+        });
+
+        FR.readAsDataURL(this.files[0]);
+    }
+
+}
+
+document.getElementById("inp").addEventListener("change", readFile);
+
+$(document).ready(function () {
+    console.log("ready!");
+});
+/* function init() {
     let dz = new Dropzone("#dropzone", {
         url: "/",
         maxFiles: 1,
@@ -23,7 +49,7 @@ function init() {
         $.post(url, {
             image_data: file.dataURL
         }, function (data, status) {
-            /* 
+            
             Below is a sample response if you have two faces in an image lets say virat and roger together.
             Most of the time if there is one person in the image you will get only one element in below array
             data = [
@@ -50,7 +76,7 @@ function init() {
                     }
                 }
             ]
-            */
+            
             data1 = data;
             console.log('data: ', data);
 
@@ -102,11 +128,5 @@ function init() {
     });
 }
 
-$(document).ready(function () {
-    console.log("ready!");
-    $("#error").hide();
-    $("#resultHolder").hide();
-    $("#divClassTable").hide();
 
-    init();
-});
+*/

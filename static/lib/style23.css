@@ -29,34 +29,29 @@
     line-height: initial;
 }
 
-.dropzone {
-    border-style: dashed;
+.image #img {
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
 }
 
-.error>p {
-    font-family: Roboto;
-    font-size: 30px;
-    font-weight: 50px;
-    line-height: initial;
-    color: blue;
+.selectImage {
+    position: absolute;
+    margin: 0 auto;
+}
+
+body {
     text-align: center;
 }
 
-#classTable {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+form {
+    display: inline-block;
 }
 
-#classTable td,
-#classTable th {
-    border: 1px solid #ddd;
-    padding: 8px;
+#submitBtn {
+    margin-top: 30px;
 }
 
-#classTable th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    color: white;
+#b64 {
+    visibility: hidden;
 }

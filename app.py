@@ -3,14 +3,14 @@ import pywt
 import joblib
 import numpy as np
 import base64
+import os
 import json
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, redirect
 
 app = Flask(__name__)
 app.config.update(
     dict(SECRET_KEY="powerful secretkey", WTF_CSRF_SECRET_KEY="a csrf secret key")
 )
-
 
 __class_name_to_number = {}
 __class_number_to_name = {}
@@ -126,20 +126,58 @@ def w2d(img, mode='haar', level=1):
     return imArray_H
 
 
+def allowed_image(filename):
+    # We only want files with a . in the filename
+    if not "." in filename:
+        return False
+
+    # Split the extension from the filename
+    ext = filename.rsplit(".", 1)[1]
+
+    # Check if the extension is in ALLOWED_IMAGE_EXTENSIONS
+    if ext.upper() in app.config["ALLOWED_IMAGE_EXTENSIONS"]:
+        return True
+    else:
+        return False
+
+
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
 
 @app.route('/prediction', methods=['POST'])
-def predictions():
-    image_data = request.form['image_data']
+def prediction():
+    if request.method == 'POST':
+        image_data = request.form['b64']
+        print(image_data)
+        result = classify_image(image_data)
+        print(result)
 
-    response = jsonify(classify_image(image_data))
+        if len(result) == 0:
+            message = "Can't classify image. Classifier was not able to detect face and two eyes properly"
+            return render_template("prediction.html", message=message)
 
-    response.headers.add('Access-Control-Allow-Origin', '*')
+        match = None
+        bestScore = -1
 
-    return response
+        for i in range(len(result)):
+            maxScoreForThisClass = max(result[i]['class_probability'])
+
+            if maxScoreForThisClass > bestScore:
+                match = result[i];
+                bestScore = maxScoreForThisClass
+
+        playerName = match['class']
+
+        messi = match['class_probability'][0]
+        sharapova = match['class_probability'][1]
+        federer = match['class_probability'][2]
+        serena = match['class_probability'][3]
+        virat = match['class_probability'][4]
+
+
+        return render_template('prediction.html', playerName=playerName, messi=messi, sharapova=sharapova, federer=federer,  serena=serena, virat=virat)
 
 
 if __name__ == "__main__":
