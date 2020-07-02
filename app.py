@@ -42,9 +42,22 @@ def classify_image(image_base64_data, file_path=None):
 
 
 def class_number_to_name(class_num):
-    __class_number_to_name = {"lionel_messi": 0, "maria_sharapova": 1, "roger_federer": 2, "serena_williams": 3, "virat_kohli": 4}
-    playerName = __class_number_to_name[class_num]
-    return playerName
+    if class_num == 0:
+        player = 'lionel_messi'
+
+    elif class_num == 1:
+        player = 'maria_sharapova'
+
+    elif class_num == 2:
+        player = 'roger_federer'
+
+    elif class_num == 3:
+        player = 'serena_williams'
+
+    elif class_num == 4:
+        player = 'virat_kohli'
+
+    return player
 
 
 def get_cv2_image_from_base64_string(b64str):
@@ -132,6 +145,7 @@ def prediction():
 
         image_data = request.form['b64']
         result = classify_image(image_data)
+        print(result)
 
         if len(result) == 0:
             message = "Can't classify image. Classifier was not able to detect face and two eyes properly"
