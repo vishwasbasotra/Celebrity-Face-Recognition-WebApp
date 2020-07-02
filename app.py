@@ -42,6 +42,7 @@ def classify_image(image_base64_data, file_path=None):
 
 
 def class_number_to_name(class_num):
+    __class_number_to_name = {"lionel_messi": 0, "maria_sharapova": 1, "roger_federer": 2, "serena_williams": 3, "virat_kohli": 4}
     playerName = __class_number_to_name[class_num]
     return playerName
 
