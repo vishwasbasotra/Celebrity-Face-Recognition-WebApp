@@ -235,9 +235,9 @@ form {
 
     /* You can adjust the image size by increasing/decreasing the width, height */
     .custom-circle-image {
-        width: 10vw;
+        width: 18vw;
         /* note i used vw not px for better responsive */
-        height: 10vw;
+        height: 18vw;
     }
 
     .custom-circle-image img {
