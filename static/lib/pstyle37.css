@@ -1,0 +1,196 @@
+body {
+    text-align: center;
+}
+
+#classTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 30%;
+}
+
+#classTable td,
+#classTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#classTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: white;
+}
+
+img {
+    height: 20%;
+    width: 20%;
+    border-radius: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-dark .navbar-brand {
+    font-size: 50px;
+    font-weight: 200;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+#error {
+    margin-top: 50px;
+}
+
+table {
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 320px) {
+    body {
+        text-align: center;
+    }
+
+    #classTable {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 30%;
+    }
+
+    #classTable td,
+    #classTable th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #classTable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        color: white;
+    }
+
+    img {
+        height: 20%;
+        width: 20%;
+        border-radius: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .navbar-dark .navbar-brand {
+        font-size: 50px;
+        font-weight: 200;
+    }
+
+    table {
+        margin-top: 25px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    body {
+        text-align: center;
+    }
+
+    #classTable {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 30%;
+    }
+
+    #classTable td,
+    #classTable th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #classTable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        color: white;
+    }
+
+    img {
+        height: 20%;
+        width: 20%;
+        border-radius: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .navbar-dark .navbar-brand {
+        font-size: 50px;
+        font-weight: 200;
+    }
+
+    table {
+        margin-top: 25px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    body {
+        text-align: center;
+    }
+
+    #classTable {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 30%;
+    }
+
+    #classTable td,
+    #classTable th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #classTable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        color: white;
+    }
+
+    img {
+        height: 40%;
+        width: 40%;
+        border-radius: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    #error {
+        margin-top: 20px;
+    }
+
+    .navbar-dark .navbar-brand {
+        font-size: 30px;
+        font-weight: 200;
+        margin-bottom: 0 !important;
+    }
+
+    table {
+        margin-top: 25px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 15px;
+        width: 70%;
+    }
+}

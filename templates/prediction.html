@@ -13,7 +13,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
     <!-- Custom CSS-->
-    <link rel="stylesheet" href="{{url_for('static',filename='lib/pstyle18.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='lib/pstyle37.css')}}" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{url_for('static',filename='favicon.png')}}" />
@@ -25,46 +25,50 @@
     <nav class="navbar navbar-dark bg-dark justify-content-center">
         <a class="navbar-brand" href="{{url_for('index')}}">Sports Person Classifier</a>
     </nav>
-    <div class="error" id="error">
-        <h1 style="margin-top: 50px;" class="text-center text-danger display-6">{{message}}</h1>
+    <div>
+        <h1 class="error text-danger" id="error" class="text-center text-danger display-6">
+            {{message}}
+        </h1>
+        <h1 class="display-6 text-primary" style="font-weight: 30px;">{{player}}</h1>
+
+        <img src="{{url_for('static',filename='messi1.webp')}}" alt="Messi" id="messi">
+        <img src="{{url_for('static',filename='sharapova.webp')}}" alt="Sharapova" id="sharapova">
+        <img src="{{url_for('static',filename='federer.webp')}}" alt="Federer" id="federer">
+        <img src="{{url_for('static',filename='serena1.webp')}}" alt="Serena" id="serena">
+        <img src="{{url_for('static',filename='virat1.webp')}}" alt="Virat" id="virat">
+
+        <table class="text-center" id="classTable">
+            <tr>
+                <th class="bg-primary">Player</th>
+                <th class="bg-primary">Probability Score</th>
+            </tr>
+            <tr>
+                <td>Leonel Messi</td>
+                <td id="score_lionel_messi">{{messi}}</td>
+            </tr>
+            <tr>
+                <td>Maria Sharapova</td>
+                <td id="score_maria_sharapova">{{sharapova}}</td>
+            </tr>
+            <tr>
+                <td>Rodger Federer</td>
+                <td id="score_roger_federer">{{federer}}</td>
+            </tr>
+            <tr>
+                <td>Serena Williams</td>
+                <td id="score_serena_williams">{{serena}}</td>
+            </tr>
+            <tr>
+                <td>Virat Kohli</td>
+                <td id="score_virat_kohli">{{virat}}</td>
+            </tr>
+        </table>
+
+        <input type="text" value="{{playerName}}" id="playerName"
+            style="visibility: hidden;margin-top: 1px; height: 1px;">
+
     </div>
 
-    <input type="text" value="{{playerName}}" id="playerName" style="visibility: hidden;margin-top: 1px; height: 1px;">
-
-    <h1 class="display-6 text-primary" style="font-weight: 30px;">{{player}}</h1>
-
-    <img src="{{url_for('static',filename='messi1.webp')}}" alt="Messi" id="messi">
-    <img src="{{url_for('static',filename='sharapova.webp')}}" alt="Sharapova" id="sharapova">
-    <img src="{{url_for('static',filename='federer.webp')}}" alt="Federer" id="federer">
-    <img src="{{url_for('static',filename='serena1.webp')}}" alt="Serena" id="serena">
-    <img src="{{url_for('static',filename='virat1.webp')}}" alt="Virat" id="virat">
-
-    <table class="text-center" id="classTable">
-        <tr>
-            <th class="bg-primary">Player</th>
-            <th class="bg-primary">Probability Score</th>
-        </tr>
-        <tr>
-            <td>Leonel Messi</td>
-            <td id="score_lionel_messi">{{messi}}</td>
-        </tr>
-        <tr>
-            <td>Maria Sharapova</td>
-            <td id="score_maria_sharapova">{{sharapova}}</td>
-        </tr>
-        <tr>
-            <td>Rodger Federer</td>
-            <td id="score_roger_federer">{{federer}}</td>
-        </tr>
-        <tr>
-            <td>Serena Williams</td>
-            <td id="score_serena_williams">{{serena}}</td>
-        </tr>
-        <tr>
-            <td>Virat Kohli</td>
-            <td id="score_virat_kohli">{{virat}}</td>
-        </tr>
-    </table>
 </body>
 
 <!-- jQuery -->
