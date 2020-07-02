@@ -30,27 +30,37 @@
 }
 
 .image #img {
-    height: 100%;
-    width: 100%;
+    height: 300%;
+    width: 30%;
     border-radius: 15px;
+    margin-top: 10px;
 }
 
 .selectImage {
-    position: absolute;
-    margin: 0 auto;
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
 body {
     text-align: center;
 }
 
-form {
-    display: inline-block;
+.btn-seconadary {
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#submitBtn {
-    margin-top: 30px;
+input.btn-seconadary {
+    cursor: pointer;
 }
+
+form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 #b64 {
     visibility: hidden;

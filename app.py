@@ -125,6 +125,7 @@ def index():
 
 @app.route('/prediction', methods=["POST"])
 def prediction():
+
     if request.method == 'POST':
 
         image_data = request.form['b64']
@@ -142,10 +143,13 @@ def prediction():
             maxScoreForThisClass = max(result[i]['class_probability'])
 
             if maxScoreForThisClass > bestScore:
-                match = result[i];
+                match = result[i]
                 bestScore = maxScoreForThisClass
 
         playerName = match['class']
+
+        player = playerName.split('_')
+        player = " ".join(player).upper()
 
         messi = match['class_probability'][0]
         sharapova = match['class_probability'][1]
@@ -153,7 +157,7 @@ def prediction():
         serena = match['class_probability'][3]
         virat = match['class_probability'][4]
 
-        return render_template('prediction.html', playerName=playerName, messi=messi, sharapova=sharapova,
+        return render_template('prediction.html',player=player, playerName=playerName, messi=messi, sharapova=sharapova,
                                federer=federer, serena=serena, virat=virat)
 
 

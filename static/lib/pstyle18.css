@@ -1,3 +1,7 @@
+body {
+    text-align: center;
+}
+
 .error>p {
     font-family: Roboto;
     font-size: 30px;
@@ -10,7 +14,7 @@
 #classTable {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 30%;
 }
 
 #classTable td,
@@ -40,8 +44,8 @@ img {
     font-weight: 200;
 }
 
-#classTable {
-    display: block;
+table {
+    margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
 }

@@ -13,7 +13,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
     <!-- Custom CSS-->
-    <link rel="stylesheet" href="{{url_for('static',filename='lib/style23.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='lib/style28.css')}}" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{url_for('static',filename='favicon.png')}}" />
@@ -31,10 +31,10 @@
             <div class="col card-wrapper" data-player="lionel_messi">
                 <div class="card border-0">
                     <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
-                        <img class="w-100 h-100" src="{{url_for('static',filename='messi.jpg')}}" alt="Card image cap">
+                        <img class="w-100 h-100" src="{{url_for('static',filename='messi1.jpg')}}" alt="Card image cap">
                     </div>
                     <div class="card-body text-center mt-4">
-                        <h4 class="text-uppercase title">Lionel Messi</h4>
+                        <h4 class="text-uppercase title" style="font-weight: 400;">Lionel Messi</h4>
                         </p>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
             <div class="col card-wrapper" data-player="maria_sharapova">
                 <div class="card border-0">
                     <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
-                        <img class="w-100 h-100" src="{{url_for('static',filename='sharapova.jpg')}}"
+                        <img class="w-100 h-100" src="{{url_for('static',filename='sharapova1.jpg')}}"
                             alt="Card image cap">
                     </div>
                     <div class="card-body text-center mt-4">
@@ -79,7 +79,7 @@
             <div class="col card-wrapper" data-player="virat_kohli">
                 <div class="card border-0">
                     <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
-                        <img class="w-100 h-100" src="{{url_for('static',filename='virat.jpg')}}" alt="Card image cap">
+                        <img class="w-100 h-100" src="{{url_for('static',filename='virat1.jpg')}}" alt="Card image cap">
                     </div>
                     <div class="card-body text-center mt-4">
                         <h4 class="text-uppercase card-title">Virat Kohli</h4>
@@ -90,28 +90,19 @@
 
         </div>
 
-        <div class="row selectImage text-center">
-            <div class="col-sm-4">
-                <div class="row">
-                    <div class="col-12 mx-auto">
-                        <form action="/prediction" enctype="multipart/form-data" runat="server" method="POST"
-                            class="form">
-                            <div class="image form-group">
-                                <label for="inp" class="btn btn-secondary">Uplaod Image</label>
-                                <input autocomplete="off" id="inp" style="visibility: hidden;" type='file'>
-                                <input name="b64" type="textarea" id="b64">
-                                <img id="img">
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-3 mx-auto">
-                                    <input type="submit" id="submitBtn" class="btn btn-primary"
-                                        value="Classify Celebrity">
-                                </div>
-                            </div>
-                        </form>
+        <div class="selectImage text-center">
+            <form action="{{url_for('prediction')}}" enctype="multipart/form-data" runat="server" method="POST"
+                class="form">
+                <div class="image form-group">
+
+                    <input class="btn btn-secondary" autocomplete="off" id="inp" type='file'>
+                    <br><input name="b64" type="textarea" id="b64">
+                    <div>
+                        <img id="img">
                     </div>
                 </div>
-            </div>
+                <input type="submit" id="submitBtn" class=" submit btn btn-primary" value="Classify Celebrity">
+            </form>
         </div>
     </div>
 
