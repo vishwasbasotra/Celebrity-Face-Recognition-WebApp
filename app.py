@@ -42,7 +42,8 @@ def classify_image(image_base64_data, file_path=None):
 
 
 def class_number_to_name(class_num):
-    return __class_number_to_name[class_num]
+    playerName = __class_number_to_name[class_num]
+    return playerName
 
 
 def get_cv2_image_from_base64_string(b64str):
