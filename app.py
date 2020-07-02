@@ -1,6 +1,6 @@
 import cv2
 import pywt
-import joblib
+import pickle
 import numpy as np
 import base64
 import json
@@ -14,7 +14,7 @@ app.config.update(
 __class_name_to_number = {}
 __class_number_to_name = {}
 
-__model = joblib.load(open('final_model.pkl', 'rb'))
+__model = pickle.load(open("final_model.pickle", "rb"))
 
 
 def classify_image(image_base64_data, file_path=None):
