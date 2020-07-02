@@ -118,12 +118,12 @@ def w2d(img, mode='haar', level=1):
     return imArray_H
 
 
-@app.route('/')
+@app.route("/")
 def index():
     return render_template('index.html')
 
 
-@app.route('/prediction', methods=["POST"])
+@app.route("/prediction", methods=["POST"])
 def prediction():
 
     if request.method == 'POST':
